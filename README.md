@@ -7,8 +7,7 @@ Neste repositório, trago o código fonte de uma página de phishing usando PHP.
 # Ferramentas presentes na versão atual:
 
   - Captura dos dados e arquivamento no arquivo log.txt
-  - Captura dos dados e arquivamento no MySQL.
-
+  
 # Ideias para possiveis atualizações:
 
 - Sem ideias

